@@ -24,7 +24,8 @@ kubectl -n homework-1 port-forward deployment/kuber-homework 8082:8080
 
 4. - Образ: localhost:5001/kuber-homework:v1
    - Успешный push (digest): sha256:b580ee8773f059740841d2273f3d8892e140c8d4bbe2152f17099dbbe24bbcc2 size: 856
-5.deployments,replicasets,pods.txt - список Deployment, ReplicaSet и Pod.
+
+5. deployments,replicasets,pods.txt - список Deployment, ReplicaSet и Pod.
 http.txt - HTTP-ответ приложения.
 pods.txt - список Pod до и после удаления.
 change_message.txt - результаты изменения ConfigMap.
