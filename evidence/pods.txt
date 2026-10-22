@@ -4,6 +4,8 @@ NAME                              UID                                    RESTART
 kuber-homework-586b94cb6f-2p5qd   704b3b64-222c-41ce-9b6d-6e6b4ecf58f9   0
 kuber-homework-586b94cb6f-74nf7   4357a75c-ec7e-4950-b305-ec3f6464645d   0
 
+tima@DESKTOP-P8O8QVA:/mnt/c/Users/Tim/Desktop/FIIT/docker2/mini-project/cherezov-homework-1$ kubectl -n homework-1 delete pod kuber-homework-586b94cb6f-2p5qd
+pod "kuber-homework-586b94cb6f-2p5qd" deleted from homework-1 namespace
 
 tima@DESKTOP-P8O8QVA:/mnt/c/Users/Tim/Desktop/FIIT/docker2/mini-project/cherezov-homework-1$ kubectl -n homework-1 get pods \
   -o custom-columns='NAME:.metadata.name,UID:.metadata.uid,RESTARTS:.status.containerStatuses[0].restartCount'
