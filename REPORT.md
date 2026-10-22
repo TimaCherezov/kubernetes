@@ -20,8 +20,8 @@ kubectl apply -f k8s/deployment.yaml
 kubectl -n homework-1 rollout status deployment/kuber-homework
 
 kubectl -n homework-1 port-forward deployment/kuber-homework 8082:8080
-# В другом терминале:
-curl -i http://localhost:8082/
+В другом терминале: curl -i http://localhost:8082/
+
 4. 
 - Образ: localhost:5001/kuber-homework:v1
 - Успешный push (digest): sha256:b580ee8773f059740841d2273f3d8892e140c8d4bbe2152f17099dbbe24bbcc2 size: 856
