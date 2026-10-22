@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuber-homework
+  namespace: homework-1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kuber-homework
+  template:
+    metadata:
+      labels:
+        app: kuber-homework
+    spec:
+      containers:
+        - name: api
+          image: localhost:5001/kuber-homework:v1
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: kuber-homework-config
+            - secretRef:
+                name: kuber-homework-secret
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+              ephemeral-storage: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+              ephemeral-storage: "256Mi"

@@ -1,0 +1,23 @@
+tima@DESKTOP-P8O8QVA:/mnt/c/Users/Tim/Desktop/FIIT/docker2/mini-project/cherezov-homework-1$ kubectl apply -f k8s/configmap.yaml
+configmap/kuber-homework-config configured
+tima@DESKTOP-P8O8QVA:/mnt/c/Users/Tim/Desktop/FIIT/docker2/mini-project/cherezov-homework-1$  curl -i http://localhost:8082/
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 22 Oct 2026 16:15:44 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+{"message":"Привет из Kubernetes!","author":"tim","tokenConfigured":true}
+
+tima@DESKTOP-P8O8QVA:/mnt/c/Users/Tim/Desktop/FIIT/docker2/mini-project/cherezov-homework-1$ kubectl -n homework-1 rollout restart deployment/kuber-homework
+deployment.apps/kuber-homework restarted
+tima@DESKTOP-P8O8QVA:/mnt/c/Users/Tim/Desktop/FIIT/docker2/mini-project/cherezov-homework-1$ kubectl -n homework-1 rollout status deployment/kuber-homework
+deployment "kuber-homework" successfully rolled out
+tima@DESKTOP-P8O8QVA:/mnt/c/Users/Tim/Desktop/FIIT/docker2/mini-project/cherezov-homework-1$ curl -i http://localhost:8082/
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 22 Oct 2026 16:18:55 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+{"message":"Новое сообщение из ConfigMap!","author":"tim","tokenConfigured":true}

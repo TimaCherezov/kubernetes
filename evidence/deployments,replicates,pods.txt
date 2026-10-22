@@ -1,0 +1,11 @@
+kubectl -n homework-1 get deployments,replicasets,pods -o wide
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                             SELECTOR
+deployment.apps/kuber-homework   2/2     2            2           40m   api          localhost:5001/kuber-homework:v1   app=kuber-homework
+
+NAME                                        DESIRED   CURRENT   READY   AGE   CONTAINERS   IMAGES                             SELECTOR
+replicaset.apps/kuber-homework-586b94cb6f   0         0         0       40m   api          localhost:5001/kuber-homework:v1   app=kuber-homework,pod-template-hash=586b94cb6f
+replicaset.apps/kuber-homework-78cd7969     2         2         2       18m   api          localhost:5001/kuber-homework:v1   app=kuber-homework,pod-template-hash=78cd7969
+
+NAME                                READY   STATUS    RESTARTS   AGE   IP           NODE                       NOMINATED NODE   READINESS GATES
+pod/kuber-homework-78cd7969-hc9j6   1/1     Running   0          18m   10.244.0.8   homework-1-control-plane   <none>           <none>
+pod/kuber-homework-78cd7969-nltdx   1/1     Running   0          18m   10.244.0.9   homework-1-control-plane   <none>           <none>
